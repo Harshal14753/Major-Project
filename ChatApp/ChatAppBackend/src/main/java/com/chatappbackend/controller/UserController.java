@@ -10,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -20,10 +21,10 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 
 
     @PostMapping("/saveUser")
@@ -45,11 +46,22 @@ public class UserController {
             return ResponseEntity.badRequest().body("Something wents wrong");
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<?> getUser(@PathVariable String id) {
-        Optional<User> user = userRepository.findById(id);
+    @GetMapping("/user/{phoneNumber}")
+    public ResponseEntity<?> getUser(@PathVariable String phoneNumber) {
+        Optional<User> user = userRepository.findByPhoneNumber(phoneNumber);
+        if (user.isPresent()) {
+            return ResponseEntity.ok().body(user.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/users/{phoneNumber}")
+    public ResponseEntity<List<User>> getAllUser(@PathVariable String phoneNumber) {
+        Optional<List<User>> user = userRepository.findByPhoneNumberStartsWith(phoneNumber);
 //        System.out.println(user.get());
         if (user.isPresent()) {
+//            System.out.println(user.get());
             return ResponseEntity.ok().body(user.get());
         } else {
             return ResponseEntity.notFound().build();

@@ -8,9 +8,9 @@ public class Message {
 
     @Id
     private Long id;
-    private User sender;
-    private Chat chat;
+    private String senderId;
     private String content;
+    private String chatId;
     private LocalDateTime timestamp;
     private boolean isRead;
 //    private MessageType messageType;
@@ -19,36 +19,37 @@ public class Message {
     public Message() {
     }
 
-    public Message(User sender, Chat chat, String content, boolean isRead, LocalDateTime timestamp) {
-        this.sender = sender;
-        this.chat = chat;
+    public Message(Long id, String content, String senderId, String chatId, LocalDateTime timestamp, boolean isRead) {
+        this.id = id;
         this.content = content;
-        this.isRead = isRead;
+        this.senderId = senderId;
+        this.chatId = chatId;
         this.timestamp = timestamp;
+        this.isRead = isRead;
     }
 
     public Long getId() {
         return id;
     }
 
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getChatId() {
+        return chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User getSender() {
-        return sender;
-    }
-
-    public void setSender(User sender) {
-        this.sender = sender;
-    }
-
-    public Chat getChat() {
-        return chat;
-    }
-
-    public void setChat(Chat chat) {
-        this.chat = chat;
     }
 
     public String getContent() {

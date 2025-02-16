@@ -2,7 +2,6 @@ package com.chatappbackend.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Document(collection = "chat")
+@Document(collection = "chats")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +17,7 @@ public class Chat {
 
     @Id
     private String id;
-    private List<User> participants; // One-to-One or Group chat
+    private List<String> participantIds; // One-to-One or Group chat
     private List<Message> messages;
     private LocalDateTime lastMessageTime;
     private boolean isGroupChat;
@@ -32,15 +31,15 @@ public class Chat {
     public Chat() {
     }
 
-    public Chat(List<User> participants, List<Message> messages, LocalDateTime lastMessageTime, boolean isGroupChat) {
-        this.participants = participants;
+    public Chat(List<String> participantIds, List<Message> messages, LocalDateTime lastMessageTime, boolean isGroupChat) {
+        this.participantIds = participantIds;
         this.messages = messages;
         this.lastMessageTime = lastMessageTime;
         this.isGroupChat = isGroupChat;
     }
 
-    public Chat(List<User> participants, List<Message> messages, LocalDateTime lastMessageTime, boolean isGroupChat, String groupName, User admin, String groupIcon, LocalDateTime createdAt) {
-        this.participants = participants;
+    public Chat(List<String> participantIds, List<Message> messages, LocalDateTime lastMessageTime, boolean isGroupChat, String groupName, User admin, String groupIcon, LocalDateTime createdAt) {
+        this.participantIds = participantIds;
         this.messages = messages;
         this.lastMessageTime = lastMessageTime;
         this.isGroupChat = isGroupChat;
@@ -48,6 +47,10 @@ public class Chat {
         this.admin = admin;
         this.groupIcon = groupIcon;
         this.createdAt = createdAt;
+    }
+
+    public Chat(List<String> participantIds) {
+        this.participantIds = participantIds;
     }
 
     public String getId() {
@@ -58,12 +61,12 @@ public class Chat {
         this.id = id;
     }
 
-    public List<User> getParticipants() {
-        return participants;
+    public List<String> getParticipantIds() {
+        return participantIds;
     }
 
-    public void setParticipants(List<User> participants) {
-        this.participants = participants;
+    public void setParticipantIds(List<String> participantIds) {
+        this.participantIds = participantIds;
     }
 
     public List<Message> getMessages() {
