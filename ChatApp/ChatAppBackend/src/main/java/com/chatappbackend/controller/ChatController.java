@@ -15,20 +15,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/chats")
 public class ChatController {
 
     @Autowired
     private ChatService chatService;
     private ChatRepository chatRepository;
 
-    @PostMapping("/create/{user1Id}/{user2Id}")
+    @PostMapping("/chats/create/{user1Id}/{user2Id}")
     public ResponseEntity<Chat> createChat(@PathVariable String user1Id, @PathVariable String user2Id) {
         Chat chat = chatService.createChat(user1Id, user2Id);
         return ResponseEntity.ok(chat);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/chats/{userId}")
     public ResponseEntity<List<Chat>> getUserChats(@PathVariable String userId) {
         List<Chat> chats = chatService.getUserChats(userId);
         return ResponseEntity.ok(chats);
