@@ -1,0 +1,54 @@
+ENotes
+Google id :- 307705240875-5ts59bf56rre6p15qenavodna1r7eoqs.apps.googleusercontent.com
+Google secret :- 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
+
+GitHub id :- Ov23lisyc3IjFzSP1mv2
+GitHub secret :- 0e966d68b8b23eb34484430593831c1acf8b0fbc
+
+
+
+spring.security.oauth2.client.registration.google.client-id=307705240875-5ts59bf56rre6p15qenavodna1r7eoqs.apps.googleusercontent.com
+spring.security.oauth2.client.registration.google.client-secret=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
+spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:8080/login/oauth2/code/google
+spring.security.oauth2.client.registration.google.scope=email,profile
+
+spring.security.oauth2.client.provider.google.authorization-uri=https://accounts.google.com/o/oauth2/auth
+spring.security.oauth2.client.provider.google.token-uri=https://oauth2.googleapis.com/token
+spring.security.oauth2.client.provider.google.user-info-uri=https://www.googleapis.com/oauth2/v3/userinfo
+
+spring.security.oauth2.client.registration.github.client-id=Ov23lisyc3IjFzSP1mv2
+spring.security.oauth2.client.registration.github.client-secret=0e966d68b8b23eb34484430593831c1acf8b0fbc
+spring.security.oauth2.client.registration.github.redirect-uri=http://localhost:8080/login/oauth2/code/github
+spring.security.oauth2.client.registration.github.scope=read:user, user:email
+
+spring.security.oauth2.client.provider.github.authorization-uri=https://github.com/login/oauth/authorize
+spring.security.oauth2.client.provider.github.token-uri=https://github.com/login/oauth/access_token
+spring.security.oauth2.client.provider.github.user-info-uri=https://api.github.com/user
+spring.security.oauth2.client.provider.github.user-name-attribute=email
+
+jwt.secret=AAKTHx9z70iQTb9PMnmIuvBISFSaegDhP1xSS+xP1XU=
+
+
+
+
+
+jwt.secret=<JWT-Secret-Key>
+
+spring.security.oauth2.client.registration.google.client-id=<Client-Id-Google>
+spring.security.oauth2.client.registration.google.client-secret=<Client-Secret-Google>
+spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:8080/login/oauth2/code/google
+spring.security.oauth2.client.registration.google.scope=email,profile
+
+spring.security.oauth2.client.provider.google.authorization-uri=https://accounts.google.com/o/oauth2/auth
+spring.security.oauth2.client.provider.google.token-uri=https://oauth2.googleapis.com/token
+spring.security.oauth2.client.provider.google.user-info-uri=https://www.googleapis.com/oauth2/v3/userinfo
+
+spring.security.oauth2.client.registration.github.client-id=<Client-Id-Github>
+spring.security.oauth2.client.registration.github.client-secret=<Client-Secret-Github>
+spring.security.oauth2.client.registration.github.redirect-uri=http://localhost:8080/login/oauth2/code/github
+spring.security.oauth2.client.registration.github.scope=read:user, user:email
+
+spring.security.oauth2.client.provider.github.authorization-uri=https://github.com/login/oauth/authorize
+spring.security.oauth2.client.provider.github.token-uri=https://github.com/login/oauth/access_token
+spring.security.oauth2.client.provider.github.user-info-uri=https://api.github.com/user
+spring.security.oauth2.client.provider.github.user-name-attribute=email
