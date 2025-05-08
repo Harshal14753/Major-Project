@@ -1,6 +1,0 @@
-ENotes
-Google id :- 307705240875-5ts59bf56rre6p15qenavodna1r7eoqs.apps.googleusercontent.com
-Google secret :- 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
-
-GitHub id :- Ov23lisyc3IjFzSP1mv2
-GitHub secret :- 0e966d68b8b23eb34484430593831c1acf8b0fbc
